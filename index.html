@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Backend &amp; Distributed Systems Engineer specializing in scalable architectures and AI-driven solutions." />
+  <meta name="description" content="Backend &amp; Distributed Systems Engineer | Crafting Resilient and Scalable Solutions" />
   <title>Naveen S</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,26 +16,26 @@
       --font: 'Inter', sans-serif;
 
       /* Light mode */
-      --light-primary:     #286090;
-      --light-secondary:   #777777;
-      --light-bg:          #ffffff;
+      --light-primary:     #1976D2;
+      --light-secondary:   #475569;
+      --light-bg:          #FFFFFF;
       --light-surface:     color-mix(in srgb, var(--light-bg) 95%, black);
       --light-surfaceHov:  color-mix(in srgb, var(--light-bg) 90%, black);
       --light-text:        #111111;
       --light-textLight:   #666666;
-      --light-accent:      #4CAF50;
+      --light-accent:      #00BCD4;
       --light-border:      color-mix(in srgb, var(--light-bg) 88%, black);
       --light-shadow:      rgba(0,0,0,0.08);
 
       /* Dark mode */
-      --dark-primary:      #4a90d4;
-      --dark-secondary:    #a0a0a0;
+      --dark-primary:      #2196F3;
+      --dark-secondary:    #9CA3AF;
       --dark-bg:           #121212;
       --dark-surface:      color-mix(in srgb, var(--dark-bg) 93%, white);
       --dark-surfaceHov:   color-mix(in srgb, var(--dark-bg) 88%, white);
       --dark-text:         #f3f4f6;
       --dark-textLight:    #9ca3af;
-      --dark-accent:       #4CAF50;
+      --dark-accent:       #00BCD4;
       --dark-border:       color-mix(in srgb, var(--dark-bg) 84%, white);
       --dark-shadow:       rgba(0,0,0,0.3);
     }
@@ -212,16 +212,26 @@
 
     /* ── Style Overrides Injection ── */
     
-      /* Glassmorphism Overrides */
-      .project-card, nav {
-        background: color-mix(in srgb, var(--surface) 40%, transparent) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border: 1px solid color-mix(in srgb, var(--border) 50%, transparent) !important;
+      /* Brutalism Overrides */
+      :root {
+        --brutal-shadow-color: #000000;
+      }
+      [data-theme="dark"] {
+        --brutal-shadow-color: var(--primary);
+      }
+      .project-card, .skill-tag, .theme-toggle, .hero-cta, nav {
+        border-radius: 0px !important;
+        border: 3px solid var(--text) !important;
+        box-shadow: 5px 5px 0px var(--brutal-shadow-color) !important;
+        background: var(--surface) !important;
       }
       .project-card:hover {
-        box-shadow: 0 8px 32px var(--shadow) !important;
-        background: color-mix(in srgb, var(--surfaceHov) 60%, transparent) !important;
+        transform: translate(-2px, -2px) !important;
+        box-shadow: 7px 7px 0px var(--brutal-shadow-color) !important;
+      }
+      .hero-cta:hover, .theme-toggle:hover {
+        transform: translate(-1px, -1px) !important;
+        box-shadow: 3px 3px 0px var(--brutal-shadow-color) !important;
       }
     
 
@@ -578,7 +588,7 @@
     <div class="container hero-content">
       <p class="hero-eyebrow gsap-reveal">Portfolio</p>
       <h1 class="hero-name gsap-reveal">Naveen <span class="highlight">S</span></h1>
-      <p class="hero-tagline gsap-reveal">Backend &amp; Distributed Systems Engineer specializing in scalable architectures and AI-driven solutions.</p>
+      <p class="hero-tagline gsap-reveal">Backend &amp; Distributed Systems Engineer | Crafting Resilient and Scalable Solutions</p>
       <a href="#contact" class="hero-cta gsap-reveal magnetic-btn">
         Get in touch
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -590,7 +600,7 @@
   <section id="about">
     <div class="container">
       <p class="section-label gsap-reveal">About</p>
-      <p class="about-text gsap-reveal">I&#39;m a passionate Computer Science Engineering student focused on building robust backend and distributed systems. My expertise spans from architecting fault-tolerant consensus mechanisms to developing multi-agent LLM systems and deploying containerized solutions on AWS. I thrive on solving complex technical challenges, contributing to impactful projects, and sharing knowledge as a teaching assistant and published researcher.</p>
+      <p class="about-text gsap-reveal">As a Computer Science Engineering student graduating in 2027, I&#39;m passionate about architecting robust backend and distributed systems. My hands-on experience includes implementing RAFT consensus from scratch, orchestrating multi-agent LLM systems, and deploying full-stack applications with advanced features like RBAC and comprehensive audit logging. I thrive on solving complex technical challenges, contributing to impactful research, and sharing my knowledge as a Teaching Assistant.</p>
     </div>
   </section>
 
@@ -598,7 +608,7 @@
   <section id="skills">
     <div class="container">
       <p class="section-label gsap-reveal">Skills</p>
-      <div class="skills-grid"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">Node.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">React</span><span class="skill-tag">AWS</span><span class="skill-tag">Docker</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Microservices</span><span class="skill-tag">Distributed Systems</span><span class="skill-tag">RAFT Consensus</span><span class="skill-tag">LLMs</span><span class="skill-tag">LangGraph</span><span class="skill-tag">Data Structures &amp; Algorithms</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Git</span><span class="skill-tag">Test-Driven Development</span></div>
+      <div class="skills-grid"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">REST API Design</span><span class="skill-tag">Microservices</span><span class="skill-tag">Distributed Systems</span><span class="skill-tag">RAFT Consensus</span><span class="skill-tag">Fault Tolerance</span><span class="skill-tag">AWS</span><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">CI/CD</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">SQL</span><span class="skill-tag">LLMs</span><span class="skill-tag">LangGraph</span><span class="skill-tag">Data Structures &amp; Algorithms</span><span class="skill-tag">Object-Oriented Design</span><span class="skill-tag">TDD</span><span class="skill-tag">Git</span></div>
     </div>
   </section>
 
@@ -616,7 +626,7 @@
             <h3 class="exp-role">Teaching Assistant</h3>
             <span class="exp-company">@ PES University</span>
           </div>
-          <p class="exp-highlight">Taught and assessed 6 sections and over 360 students across Data Structures &amp; Algorithms, Operating Systems, and Microprocessor &amp; Computer Architecture, conducting comprehensive code reviews and examinations.</p>
+          <p class="exp-highlight">Orchestrated comprehensive instruction and assessment for over 360 students across three core Computer Science domains, conducting rigorous code reviews and labs to elevate their understanding of algorithmic complexity, memory management, and concurrency.</p>
         </div>
       </div>
       <div class="exp-item" style="animation-delay: 0.1s">
@@ -628,7 +638,7 @@
             <h3 class="exp-role">Summer Research Intern</h3>
             <span class="exp-company">@ CoDMAV — Centre of Data Modelling, Analytics and Visualization, PES University</span>
           </div>
-          <p class="exp-highlight">Engineered a multimodal machine learning system leveraging Vision Transformers and interpretability methods, culminating in a first-authored, peer-reviewed paper published at IEEE INDICON 2025.</p>
+          <p class="exp-highlight">Pioneered the development of a multimodal machine learning system leveraging Vision Transformers and advanced interpretability methods, culminating in a first-authored, peer-reviewed paper published at IEEE INDICON 2025.</p>
         </div>
       </div></div>
     </div>
@@ -645,9 +655,9 @@
             <h3 class="project-title">Distr RT — Fault-Tolerant Distributed Consensus System</h3>
             
           </div>
-          <p class="project-desc">Engineered a RAFT consensus system from scratch to ensure real-time state synchronization and automatic failover across concurrent nodes, eliminating external dependencies. Deployed and validated the containerized cluster on AWS ECS Fargate, demonstrating robust log replication and split-brain avoidance under induced failures.</p>
+          <p class="project-desc">Engineered a RAFT consensus system from the ground up to achieve real-time state synchronization and automatic failover across concurrent nodes, effectively eliminating reliance on external messaging systems like Redis or Kafka. Successfully containerized and deployed the cluster on AWS ECS Fargate, demonstrating robust log replication and split-brain avoidance under simulated failure scenarios.</p>
           <div class="project-tags">
-            <span class="project-tag">Node.js</span><span class="project-tag">Docker</span><span class="project-tag">AWS ECS</span><span class="project-tag">Distributed Systems</span><span class="project-tag">RAFT Consensus</span><span class="project-tag">Fault Tolerance</span>
+            <span class="project-tag">Node.js</span><span class="project-tag">Docker</span><span class="project-tag">AWS ECS</span><span class="project-tag">Distributed Systems</span><span class="project-tag">RAFT Consensus</span>
           </div>
         </div>
       </div>
@@ -657,9 +667,9 @@
             <h3 class="project-title">PatentEase — Multi-Agent LLM Reasoning System</h3>
             
           </div>
-          <p class="project-desc">Orchestrated the LangGraph multi-agent system and designed the async PostgreSQL audit schema for a four-person team leveraging LLM reasoning over a national patent corpus. Developed a statutory screening engine and an adversarial evaluation set to rigorously measure agent reliability and identify citation hallucination.</p>
+          <p class="project-desc">Designed and implemented the core LangGraph multi-agent orchestrator and an asynchronous PostgreSQL audit schema for a four-person system, enabling sophisticated LLM reasoning over extensive national patent corpora. Developed a critical statutory screening engine and an adversarial evaluation set to rigorously measure agent reliability and effectively detect citation hallucination within the system.</p>
           <div class="project-tags">
-            <span class="project-tag">Python</span><span class="project-tag">LangGraph</span><span class="project-tag">PostgreSQL</span><span class="project-tag">LLMs</span><span class="project-tag">Multi-Agent Systems</span><span class="project-tag">RAG</span>
+            <span class="project-tag">Python</span><span class="project-tag">LangGraph</span><span class="project-tag">PostgreSQL</span><span class="project-tag">LLMs</span><span class="project-tag">Multi-Agent Systems</span>
           </div>
         </div>
       </div>
@@ -669,9 +679,9 @@
             <h3 class="project-title">GDPR Consent Manager — Compliance &amp; Audit Platform</h3>
             
           </div>
-          <p class="project-desc">Developed secure backend APIs managing the consent lifecycle, authentication, and robust role-based authorization for every request, featuring JWT sessions and encrypted records. Built with test-driven development and peer code review, ensuring compliance and auditability with GitHub Actions CI.</p>
+          <p class="project-desc">Developed robust backend APIs to manage the entire consent lifecycle and user authentication, implementing middleware for stringent role-based authorization, JWT sessions, and encrypted records with comprehensive audit logging. The project was built using a test-driven development approach, complemented by peer code reviews and continuous integration via GitHub Actions, ensuring high quality and reliability.</p>
           <div class="project-tags">
-            <span class="project-tag">Node.js</span><span class="project-tag">Express</span><span class="project-tag">PostgreSQL</span><span class="project-tag">React</span><span class="project-tag">RBAC</span><span class="project-tag">JWT</span><span class="project-tag">TDD</span><span class="project-tag">CI/CD</span>
+            <span class="project-tag">Node.js</span><span class="project-tag">Express</span><span class="project-tag">PostgreSQL</span><span class="project-tag">React</span><span class="project-tag">RBAC</span><span class="project-tag">TDD</span><span class="project-tag">CI/CD</span>
           </div>
         </div>
       </div>
@@ -681,9 +691,9 @@
             <h3 class="project-title">PQDrive — Automated Verification Pipeline</h3>
             
           </div>
-          <p class="project-desc">Engineered a seven-stage fail-fast verification pipeline with comprehensive automated test coverage to detect and block malicious payloads. Optimized performance by profiling and eliminating bottlenecks, achieving end-to-end latency under 120ms while blocking 99.7% of threats in simulation.</p>
+          <p class="project-desc">Engineered a sophisticated seven-stage fail-fast verification pipeline, comprehensively covered by an automated test suite, to ensure rapid and reliable payload validation. Strategically profiled and optimized performance bottlenecks, achieving an end-to-end latency of under 120ms while effectively blocking 99.7% of malicious payloads in simulation.</p>
           <div class="project-tags">
-            <span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">PyTest</span><span class="project-tag">Automated Testing</span><span class="project-tag">Performance Optimization</span>
+            <span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">PyTest</span><span class="project-tag">CI/CD</span><span class="project-tag">Performance Optimization</span>
           </div>
         </div>
       </div>
@@ -693,7 +703,7 @@
             <h3 class="project-title">HotShot — Live Audience Polling Platform</h3>
             
           </div>
-          <p class="project-desc">Shipped a live polling product enabling crowdsourced response options and session-based vote deduplication without requiring user accounts. Features include passkey-protected admin dashboards and CSV export for efficient data management.</p>
+          <p class="project-desc">Delivered a dynamic live polling product featuring crowdsourced response options and session-based vote deduplication, eliminating the need for user accounts. Implemented secure passkey-protected admin dashboards and robust CSV export functionality, enhancing data management and user control.</p>
           <div class="project-tags">
             <span class="project-tag">Next.js</span><span class="project-tag">Supabase</span><span class="project-tag">React</span><span class="project-tag">WebSockets</span>
           </div>
@@ -706,7 +716,7 @@
   <section id="contact">
     <div class="container">
       <p class="section-label gsap-reveal">Contact</p>
-      <p class="contact-intro gsap-reveal">I&#39;m always eager to connect on new challenges and opportunities, feel free to reach out!</p>
+      <p class="contact-intro gsap-reveal">I&#39;m always open to discussing innovative projects or opportunities in backend and distributed systems. Let&#39;s connect!</p>
       <div class="contact-links"><a href="mailto:naveenselvaraj.selva@gmail.com" class="contact-link">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       <span>naveenselvaraj.selva@gmail.com</span>
