@@ -4,38 +4,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Backend &amp; Distributed Systems Engineer | Crafting Resilient and Scalable Solutions" />
+  <meta name="description" content="Final-year Computer Science Engineer crafting scalable backend systems and AI‑driven solutions" />
   <title>Naveen S</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700;900&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     /* ── CSS Variables ── */
     :root {
       --font: 'Inter', sans-serif;
+      --font-display: var(--font);
+      --font-mono: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
 
       /* Light mode */
-      --light-primary:     #1976D2;
-      --light-secondary:   #475569;
-      --light-bg:          #FFFFFF;
+      --light-primary:     #0d6efd;
+      --light-secondary:   #6c757d;
+      --light-bg:          #ffffff;
       --light-surface:     color-mix(in srgb, var(--light-bg) 95%, black);
       --light-surfaceHov:  color-mix(in srgb, var(--light-bg) 90%, black);
       --light-text:        #111111;
       --light-textLight:   #666666;
-      --light-accent:      #00BCD4;
+      --light-accent:      #20c997;
       --light-border:      color-mix(in srgb, var(--light-bg) 88%, black);
       --light-shadow:      rgba(0,0,0,0.08);
 
       /* Dark mode */
-      --dark-primary:      #2196F3;
-      --dark-secondary:    #9CA3AF;
-      --dark-bg:           #121212;
+      --dark-primary:      #3b82f6;
+      --dark-secondary:    #9ca3af;
+      --dark-bg:           #111827;
       --dark-surface:      color-mix(in srgb, var(--dark-bg) 93%, white);
       --dark-surfaceHov:   color-mix(in srgb, var(--dark-bg) 88%, white);
       --dark-text:         #f3f4f6;
       --dark-textLight:    #9ca3af;
-      --dark-accent:       #00BCD4;
+      --dark-accent:       #34d399;
       --dark-border:       color-mix(in srgb, var(--dark-bg) 84%, white);
       --dark-shadow:       rgba(0,0,0,0.3);
     }
@@ -51,6 +53,7 @@
       --accent:     var(--light-accent);
       --border:     var(--light-border);
       --shadow:     var(--light-shadow);
+      --on-primary: #ffffff;
     }
 
     [data-theme="dark"] {
@@ -64,12 +67,16 @@
       --accent:     var(--dark-accent);
       --border:     var(--dark-border);
       --shadow:     var(--dark-shadow);
+      --on-primary: #111111;
     }
 
     /* ── Reset & Base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    /* NOTE: deliberately no scroll-behavior: smooth here — Lenis (below)
+       already takes over scrolling via JS, and having the browser's native
+       smooth-scroll active at the same time makes scrolling feel laggy and
+       unreactive, since the two systems fight over scroll position. */
 
     body {
       font-family: var(--font);
@@ -210,30 +217,6 @@
       color: var(--primary);
     }
 
-    /* ── Style Overrides Injection ── */
-    
-      /* Brutalism Overrides */
-      :root {
-        --brutal-shadow-color: #000000;
-      }
-      [data-theme="dark"] {
-        --brutal-shadow-color: var(--primary);
-      }
-      .project-card, .skill-tag, .theme-toggle, .hero-cta, nav {
-        border-radius: 0px !important;
-        border: 3px solid var(--text) !important;
-        box-shadow: 5px 5px 0px var(--brutal-shadow-color) !important;
-        background: var(--surface) !important;
-      }
-      .project-card:hover {
-        transform: translate(-2px, -2px) !important;
-        box-shadow: 7px 7px 0px var(--brutal-shadow-color) !important;
-      }
-      .hero-cta:hover, .theme-toggle:hover {
-        transform: translate(-1px, -1px) !important;
-        box-shadow: 3px 3px 0px var(--brutal-shadow-color) !important;
-      }
-    
 
     /* ── Progress Bar ── */
     #scroll-progress {
@@ -293,6 +276,25 @@
     }
 
     .hero-name .highlight { color: var(--primary); }
+
+    /* Headings use the display font. It defaults to the body font, so this
+       only changes anything when a style layer or font pairing sets one. */
+    .hero-name, .nav-name, .exp-role, .project-title { font-family: var(--font-display); }
+
+    .hero-avatar {
+      display: block; width: 132px; height: 132px; object-fit: cover;
+      border-radius: 50%; margin-bottom: 1.75rem;
+      border: 3px solid var(--surface); box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    /* ── Certifications ── */
+    .cert-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
+    .cert-item {
+      display: flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      font-size: 0.9rem; color: var(--text);
+    }
+    .cert-item svg { flex-shrink: 0; color: var(--primary); width: 18px; height: 18px; }
 
     .hero-tagline {
       font-size: clamp(1.1rem, 2.5vw, 1.35rem);
@@ -357,7 +359,7 @@
       background: var(--surfaceHov);
       border-color: var(--primary);
       color: var(--primary);
-      transform: translateY(-2px);
+      translate: 0 -2px; /* not transform: GSAP owns this element's inline transform */
       box-shadow: 0 4px 12px var(--shadow);
     }
 
@@ -420,11 +422,11 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+      transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1), rotate 0.3s, border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
+      translate: 0 -6px; /* not transform: GSAP owns this element's inline transform */
       border-color: var(--primary);
       box-shadow: 0 16px 36px var(--shadow);
     }
@@ -524,6 +526,67 @@
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
+    /* ── Visual style layer (editorial) — injected after the
+       base stylesheet so it wins at equal specificity without !important,
+       but before the print rules so "Save as PDF" still overrides it. ── */
+    
+    /* ── Editorial: a magazine feature — serif headlines, ruled columns, drop caps ── */
+    :root { --font: 'Source Serif 4', Georgia, serif; --font-display: 'Playfair Display', Georgia, serif; }
+    [data-theme="light"] { --bg: color-mix(in srgb, var(--light-bg) 75%, #f6f1e7); --border: color-mix(in srgb, var(--text) 22%, transparent); }
+    [data-theme="dark"]  { --border: color-mix(in srgb, var(--text) 22%, transparent); }
+    body { font-size: 1.04rem; }
+
+    nav { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 3px double var(--text); }
+    .nav-name { font-family: var(--font-display); font-weight: 900; font-size: 1.2rem; letter-spacing: -0.01em; }
+    .nav-links a { font-variant: small-caps; letter-spacing: 0.08em; font-size: 0.95rem; color: var(--text); }
+    .theme-toggle, .print-btn { border-radius: 0; }
+    #scroll-progress { height: 2px; background: var(--text); }
+
+    .hero-bg { display: none; }
+    #hero { border-bottom: 3px double var(--text); text-align: center; }
+    .hero-content { margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+    .hero-avatar { filter: grayscale(0.35) sepia(0.15); box-shadow: none; border: 1px solid var(--text); padding: 4px; background: var(--bg); }
+    .hero-eyebrow { font-variant: small-caps; letter-spacing: 0.3em; color: var(--textLight); border-top: 1px solid var(--text); border-bottom: 1px solid var(--text); padding: 0.3rem 1.2rem; }
+    .hero-name { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+    .hero-name .highlight { color: var(--text); font-style: italic; font-weight: 400; }
+    .hero-tagline { font-style: italic; font-size: 1.3rem; max-width: 600px; }
+    [data-theme] .hero-cta { border-radius: 0; font-variant: small-caps; letter-spacing: 0.1em; font-size: 1rem; }
+
+    section { border-bottom: 1px solid var(--border); }
+    .section-label {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; text-transform: none;
+      letter-spacing: -0.01em; color: var(--text); border-top: 3px solid var(--text); padding-top: 0.8rem; margin-bottom: 2rem;
+    }
+    .section-label::after { display: none; }
+    .about-text { color: var(--text); font-size: 1.2rem; line-height: 1.85; column-count: 2; column-gap: 2.5rem; column-rule: 1px solid var(--border); }
+    .about-text::first-letter { font-family: var(--font-display); float: left; font-size: 4.2rem; line-height: 0.85; font-weight: 900; padding: 0.3rem 0.5rem 0 0; color: var(--primary); }
+
+    .skill-tag { background: none; border: none; border-radius: 0; padding: 0; font-style: italic; font-size: 1.02rem; color: var(--text); }
+    .skill-tag:not(:last-child)::after { content: " ·"; color: var(--textLight); font-style: normal; }
+    .skill-tag:hover { background: none; color: var(--primary); translate: none; box-shadow: none; }
+    .exp-period { font-variant: small-caps; letter-spacing: 0.08em; font-size: 0.9rem; }
+    .exp-role { font-family: var(--font-display); font-size: 1.25rem; }
+    .exp-company { font-style: italic; color: var(--textLight); }
+
+    .projects-grid { gap: 0; }
+    .project-card { background: none; border: none; border-radius: 0; border-left: 1px solid var(--border); }
+    .project-card:nth-child(odd) { border-left: none; }
+    .project-card:hover { translate: none; box-shadow: none; }
+    .project-card:hover .project-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .project-title { font-family: var(--font-display); font-size: 1.35rem; }
+    .project-desc { font-size: 1rem; color: var(--text); }
+    .project-tag { background: none; color: var(--textLight); padding: 0; font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.85rem; }
+
+    .contact-link { color: var(--text); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    footer { border-top: 3px double var(--text); font-variant: small-caps; letter-spacing: 0.1em; }
+
+    @media (max-width: 600px) {
+      .about-text { column-count: 1; }
+      .project-card { border-left: none; border-top: 1px solid var(--border); }
+    }
+    
+    
+
     /* ── Print / "Save as PDF" ── */
     @media print {
       /* Force light-mode colors regardless of the active toggle — reliable
@@ -548,8 +611,14 @@
       .project-card, .skill-tag, .hero-cta { box-shadow: none !important; backdrop-filter: none !important; border: 1px solid #ddd !important; }
       .hero-cta { background: none !important; color: var(--light-text) !important; border: 1px solid #ddd !important; }
       a { text-decoration: underline; }
+      /* Undo style-layer decoration that wastes ink or doesn't survive paper. */
+      body { background: #ffffff !important; }
+      body::before, .hero-bg { display: none !important; }
+      section > .container { background: none !important; border: none !important; box-shadow: none !important; backdrop-filter: none !important; }
+      .project-card, .skill-tag, .hero-eyebrow { rotate: none !important; translate: none !important; }
     }
   </style>
+  
 </head>
 <body>
 
@@ -564,6 +633,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="print-btn magnetic-btn" id="printBtn" aria-label="Save as PDF" title="Save as PDF">
@@ -586,9 +656,10 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="container hero-content">
+      
       <p class="hero-eyebrow gsap-reveal">Portfolio</p>
       <h1 class="hero-name gsap-reveal">Naveen <span class="highlight">S</span></h1>
-      <p class="hero-tagline gsap-reveal">Backend &amp; Distributed Systems Engineer | Crafting Resilient and Scalable Solutions</p>
+      <p class="hero-tagline gsap-reveal">Final-year Computer Science Engineer crafting scalable backend systems and AI‑driven solutions</p>
       <a href="#contact" class="hero-cta gsap-reveal magnetic-btn">
         Get in touch
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -596,23 +667,22 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- Sections (order / visibility / labels from options.sections) -->
+
   <section id="about">
     <div class="container">
       <p class="section-label gsap-reveal">About</p>
-      <p class="about-text gsap-reveal">As a Computer Science Engineering student graduating in 2027, I&#39;m passionate about architecting robust backend and distributed systems. My hands-on experience includes implementing RAFT consensus from scratch, orchestrating multi-agent LLM systems, and deploying full-stack applications with advanced features like RBAC and comprehensive audit logging. I thrive on solving complex technical challenges, contributing to impactful research, and sharing my knowledge as a Teaching Assistant.</p>
+      <p class="about-text gsap-reveal">I build backend services where correctness is provable, from role‑based authorisation to audit‑ready pipelines. I love designing fault‑tolerant architectures and integrating large language models with verification layers. When I’m not coding, I teach data structures and operating systems to help the next generation of engineers.</p>
     </div>
   </section>
 
-  <!-- Skills -->
   <section id="skills">
     <div class="container">
       <p class="section-label gsap-reveal">Skills</p>
-      <div class="skills-grid"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">REST API Design</span><span class="skill-tag">Microservices</span><span class="skill-tag">Distributed Systems</span><span class="skill-tag">RAFT Consensus</span><span class="skill-tag">Fault Tolerance</span><span class="skill-tag">AWS</span><span class="skill-tag">Docker</span><span class="skill-tag">GitHub Actions</span><span class="skill-tag">CI/CD</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">SQL</span><span class="skill-tag">LLMs</span><span class="skill-tag">LangGraph</span><span class="skill-tag">Data Structures &amp; Algorithms</span><span class="skill-tag">Object-Oriented Design</span><span class="skill-tag">TDD</span><span class="skill-tag">Git</span></div>
+      <div class="skills-grid"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">Bash/Shell</span><span class="skill-tag">Object‑Oriented Programming</span><span class="skill-tag">Design Patterns</span><span class="skill-tag">Data Structures &amp; Algorithms</span><span class="skill-tag">Complexity Analysis</span><span class="skill-tag">Debugging</span><span class="skill-tag">Operating Systems</span><span class="skill-tag">Concurrency</span><span class="skill-tag">Thread Safety</span><span class="skill-tag">SDLC</span><span class="skill-tag">Agile/Scrum</span><span class="skill-tag">REST API Design</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Node.js</span><span class="skill-tag">Express</span><span class="skill-tag">Microservices</span><span class="skill-tag">WebSockets</span><span class="skill-tag">Authentication</span><span class="skill-tag">Authorisation</span><span class="skill-tag">OAuth 2.0</span><span class="skill-tag">JWT</span><span class="skill-tag">bcrypt</span><span class="skill-tag">RBAC</span><span class="skill-tag">Rate Limiting</span><span class="skill-tag">Audit Logging</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Redis</span><span class="skill-tag">Neo4j</span><span class="skill-tag">Schema Design</span></div>
     </div>
   </section>
 
-  <!-- Experience -->
   <section id="experience">
     <div class="container">
       <p class="section-label gsap-reveal">Experience</p>
@@ -626,7 +696,7 @@
             <h3 class="exp-role">Teaching Assistant</h3>
             <span class="exp-company">@ PES University</span>
           </div>
-          <p class="exp-highlight">Orchestrated comprehensive instruction and assessment for over 360 students across three core Computer Science domains, conducting rigorous code reviews and labs to elevate their understanding of algorithmic complexity, memory management, and concurrency.</p>
+          <p class="exp-highlight">Delivered instruction and assessment for 360+ students across six sections, enhancing algorithmic and systems understanding.</p>
         </div>
       </div>
       <div class="exp-item" style="animation-delay: 0.1s">
@@ -636,15 +706,14 @@
         <div class="exp-right">
           <div class="exp-header">
             <h3 class="exp-role">Summer Research Intern</h3>
-            <span class="exp-company">@ CoDMAV — Centre of Data Modelling, Analytics and Visualization, PES University</span>
+            <span class="exp-company">@ CoDMAV - Centre of Data Modelling, Analytics and Visualization, PES University</span>
           </div>
-          <p class="exp-highlight">Pioneered the development of a multimodal machine learning system leveraging Vision Transformers and advanced interpretability methods, culminating in a first-authored, peer-reviewed paper published at IEEE INDICON 2025.</p>
+          <p class="exp-highlight">Benchmarked four deep‑learning backbones on 64,600 images across 170 classes, producing a first‑author IEEE INDICON 2025 paper.</p>
         </div>
       </div></div>
     </div>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
     <div class="container">
       <p class="section-label gsap-reveal">Projects</p>
@@ -652,71 +721,53 @@
       <div class="project-card" style="animation-delay: 0s">
         <div class="project-inner">
           <div class="project-header">
-            <h3 class="project-title">Distr RT — Fault-Tolerant Distributed Consensus System</h3>
+            <h3 class="project-title">PatentEase</h3>
             
           </div>
-          <p class="project-desc">Engineered a RAFT consensus system from the ground up to achieve real-time state synchronization and automatic failover across concurrent nodes, effectively eliminating reliance on external messaging systems like Redis or Kafka. Successfully containerized and deployed the cluster on AWS ECS Fargate, demonstrating robust log replication and split-brain avoidance under simulated failure scenarios.</p>
+          <p class="project-desc">Own the multi‑agent orchestrator for a four‑person team, adding a verification layer that cross‑checks every generated reference against source records and removes unsubstantiated outputs. Implemented role‑based access control, JWT authentication, bcrypt hashing, Redis‑backed rate limiting and an append‑only audit trail, all covered by 200+ CI tests.</p>
           <div class="project-tags">
-            <span class="project-tag">Node.js</span><span class="project-tag">Docker</span><span class="project-tag">AWS ECS</span><span class="project-tag">Distributed Systems</span><span class="project-tag">RAFT Consensus</span>
+            <span class="project-tag">Python</span><span class="project-tag">FastAPI</span><span class="project-tag">PostgreSQL</span><span class="project-tag">Redis</span><span class="project-tag">LLM</span><span class="project-tag">Agent</span><span class="project-tag">Verification</span><span class="project-tag">RBAC</span>
           </div>
         </div>
       </div>
       <div class="project-card" style="animation-delay: 0.15s">
         <div class="project-inner">
           <div class="project-header">
-            <h3 class="project-title">PatentEase — Multi-Agent LLM Reasoning System</h3>
+            <h3 class="project-title">Distr RT</h3>
             
           </div>
-          <p class="project-desc">Designed and implemented the core LangGraph multi-agent orchestrator and an asynchronous PostgreSQL audit schema for a four-person system, enabling sophisticated LLM reasoning over extensive national patent corpora. Developed a critical statutory screening engine and an adversarial evaluation set to rigorously measure agent reliability and effectively detect citation hallucination within the system.</p>
+          <p class="project-desc">Implemented RAFT consensus from scratch, enabling leader election, event‑sourced replicated log and automatic failover to ensure consistent real‑time writes across nodes. Containerised the services and deployed them on AWS ECS Fargate with ECR and Cloud Map, validating replication and split‑brain avoidance under induced failures.</p>
           <div class="project-tags">
-            <span class="project-tag">Python</span><span class="project-tag">LangGraph</span><span class="project-tag">PostgreSQL</span><span class="project-tag">LLMs</span><span class="project-tag">Multi-Agent Systems</span>
+            <span class="project-tag">Node.js</span><span class="project-tag">Docker</span><span class="project-tag">AWS</span><span class="project-tag">ECS Fargate</span><span class="project-tag">RAFT</span><span class="project-tag">Consensus</span><span class="project-tag">Real‑Time</span><span class="project-tag">Distributed Systems</span>
           </div>
         </div>
       </div>
       <div class="project-card" style="animation-delay: 0.3s">
         <div class="project-inner">
           <div class="project-header">
-            <h3 class="project-title">GDPR Consent Manager — Compliance &amp; Audit Platform</h3>
+            <h3 class="project-title">GDPR Consent Manager</h3>
             
           </div>
-          <p class="project-desc">Developed robust backend APIs to manage the entire consent lifecycle and user authentication, implementing middleware for stringent role-based authorization, JWT sessions, and encrypted records with comprehensive audit logging. The project was built using a test-driven development approach, complemented by peer code reviews and continuous integration via GitHub Actions, ensuring high quality and reliability.</p>
+          <p class="project-desc">Transformed regulatory requirements into enforceable software for consent capture, modification and revocation, featuring role‑based authorisation, encrypted records and immutable audit logs. Streamlined compliance for organisations with a secure, auditable consent‑management platform.</p>
           <div class="project-tags">
-            <span class="project-tag">Node.js</span><span class="project-tag">Express</span><span class="project-tag">PostgreSQL</span><span class="project-tag">React</span><span class="project-tag">RBAC</span><span class="project-tag">TDD</span><span class="project-tag">CI/CD</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card" style="animation-delay: 0.44999999999999996s">
-        <div class="project-inner">
-          <div class="project-header">
-            <h3 class="project-title">PQDrive — Automated Verification Pipeline</h3>
-            
-          </div>
-          <p class="project-desc">Engineered a sophisticated seven-stage fail-fast verification pipeline, comprehensively covered by an automated test suite, to ensure rapid and reliable payload validation. Strategically profiled and optimized performance bottlenecks, achieving an end-to-end latency of under 120ms while effectively blocking 99.7% of malicious payloads in simulation.</p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">PyTest</span><span class="project-tag">CI/CD</span><span class="project-tag">Performance Optimization</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card" style="animation-delay: 0.6s">
-        <div class="project-inner">
-          <div class="project-header">
-            <h3 class="project-title">HotShot — Live Audience Polling Platform</h3>
-            
-          </div>
-          <p class="project-desc">Delivered a dynamic live polling product featuring crowdsourced response options and session-based vote deduplication, eliminating the need for user accounts. Implemented secure passkey-protected admin dashboards and robust CSV export functionality, enhancing data management and user control.</p>
-          <div class="project-tags">
-            <span class="project-tag">Next.js</span><span class="project-tag">Supabase</span><span class="project-tag">React</span><span class="project-tag">WebSockets</span>
+            <span class="project-tag">Node.js</span><span class="project-tag">PostgreSQL</span><span class="project-tag">React</span><span class="project-tag">GDPR</span><span class="project-tag">Consent Management</span><span class="project-tag">Security</span><span class="project-tag">Audit Logs</span>
           </div>
         </div>
       </div></div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <section id="certifications">
+    <div class="container">
+      <p class="section-label gsap-reveal">Certifications</p>
+      <ul class="cert-list"><li class="cert-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><span>AWS Certified Cloud Practitioner</span></li><li class="cert-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><span>1st Place, Heal-O-Code (2025)</span></li><li class="cert-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><span>Top 10 Finalist, HAL Aerothon (2025)</span></li><li class="cert-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><span>Top 21 of 73, MAHE Mobility (2026)</span></li><li class="cert-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg><span>4x Distinction Awardee, PES University</span></li></ul>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="container">
       <p class="section-label gsap-reveal">Contact</p>
-      <p class="contact-intro gsap-reveal">I&#39;m always open to discussing innovative projects or opportunities in backend and distributed systems. Let&#39;s connect!</p>
+      <p class="contact-intro gsap-reveal">Feel free to reach out—I’d love to discuss how we can build reliable, intelligent systems together.</p>
       <div class="contact-links"><a href="mailto:naveenselvaraj.selva@gmail.com" class="contact-link">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       <span>naveenselvaraj.selva@gmail.com</span>
@@ -738,7 +789,7 @@
 
   <footer>
     <div class="container">
-      Built with ✦ — Naveen S
+      Built with ✦ Portfol.io — Naveen S
     </div>
   </footer>
 
@@ -776,7 +827,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.7, // lower = snappier/more reactive; 1.2 felt sluggish
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
@@ -801,7 +852,7 @@
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          lenis.scrollTo(target, { offset: -70, duration: 1.2 });
+          lenis.scrollTo(target, { offset: -70, duration: 0.9 });
         }
       });
     });
@@ -853,53 +904,18 @@
         }
       });
 
-      // Stagger animation for Skill Tags
-      gsap.fromTo('.skill-tag', 
-        { scale: 0.8, opacity: 0 }, 
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.04,
-          ease: 'back.out(1.5)',
-          scrollTrigger: {
-            trigger: '#skills',
-            start: 'top 80%'
-          }
-        }
-      );
-
-      // Stagger animation for Experience Items
-      gsap.fromTo('.exp-item', 
-        { y: 30, opacity: 0 }, 
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#experience',
-            start: 'top 80%'
-          }
-        }
-      );
-
-      // Stagger animation for Project Cards
-      gsap.fromTo('.project-card', 
-        { y: 40, opacity: 0 }, 
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '#projects',
-            start: 'top 80%'
-          }
-        }
-      );
+      // Staggered entrances for skill tags, experience items, project cards
+      // and certifications. Sections can be hidden by the user, so each one is
+      // only animated if it was actually rendered.
+      [
+        { section: '#skills', items: '.skill-tag', from: { scale: 0.8, opacity: 0 }, to: { scale: 1, opacity: 1, duration: 0.5, stagger: 0.04, ease: 'back.out(1.5)' } },
+        { section: '#experience', items: '.exp-item', from: { y: 30, opacity: 0 }, to: { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out' } },
+        { section: '#projects', items: '.project-card', from: { y: 40, opacity: 0 }, to: { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out' } },
+        { section: '#certifications', items: '.cert-item', from: { y: 20, opacity: 0 }, to: { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out' } },
+      ].forEach(({ section, items, from, to }) => {
+        if (!document.querySelector(section) || !document.querySelector(items)) return;
+        gsap.fromTo(items, from, { ...to, scrollTrigger: { trigger: section, start: 'top 80%' } });
+      });
 
       // ── 6. Magnetic Buttons Effect ──
       document.querySelectorAll('.magnetic-btn').forEach((btn) => {
@@ -922,7 +938,7 @@
       });
     } else {
       // Reveal all content immediately for reduced motion
-      gsap.set('.gsap-reveal, .skill-tag, .exp-item, .project-card', { opacity: 1, y: 0, scale: 1 });
+      gsap.set('.gsap-reveal, .skill-tag, .exp-item, .project-card, .cert-item', { opacity: 1, y: 0, scale: 1 });
     }
   </script>
 </body>
